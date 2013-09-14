@@ -5,7 +5,7 @@
 		</title>
 	</head>
 	
-<body>
+<body background="car.jpg">
 <?php
     include 'configDB.php';
     include 'functions.inc.php';

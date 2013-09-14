@@ -8,19 +8,29 @@
 <body>
 <?php
     include 'configDB.php';
+    include 'functions.inc.php';
+    
+    
+    session_start();
+    
+    /*if (check_login_status() == true) {
+
+        redirect('welcome.php');
+    }*/
+
 //    include 'checkLogin.php';
-    if(!isset($_POST['userID']))
-        $userID = "";
+    if(!isset($_POST['email']))
+        $email = "";
     else
-        $userID = $_POST['userID'];
+        $email = $_POST['email'];
 
 //    session_start();
-    if ($userID != "") {
+    if ($email != "") {
 
         $password = $_POST['password'];
         $password = md5($password);
-        $query = 'select user_ID from user_master where user_id = "'
-                . $userId . '" && password = "' . $password . '"';
+        $query = 'select email from user_master where email = "'
+                . $email . '" && password = "' . $password . '"';
 
         $result = mysql_query($query, $connect)
             or die('Error executing the query' . mysql_error());
@@ -28,6 +38,13 @@
 
         if ($num_rows == 0) {
             echo "Login Failed. Please Enter valid Credentials";
+        }
+        else{
+            
+            echo "Login Success";
+            $_SESSION['logged_in'] = true;
+            $_SESSION['email'] = $email;
+            redirect('welcome.php');
         }
     }
 ?>
@@ -39,12 +56,12 @@
 		</h1>
 
 		<form name="login" id='login' action='login.php' method="post">
-			Username<input type="text" name="userID" id="userID"/></br>
+			EMail-ID<input type="text" name="email" id="email"/></br>
 			Password<input type="password" name="password"/></br></br>	
 			<input type="submit" value="Login"/>
-			<input type="button" value="Sign Up"/>
 		</form>
 
+        NewUser? <a href = "register.php">Register Here </a>
 		<script language="javascript">
 			function check(form)/*function to check userid & password*/
 			{

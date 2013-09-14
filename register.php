@@ -20,7 +20,7 @@
 		  <tr><td colspan="2"><?php echo isset($_GET["msg"])?$_GET["msg"]:"";?>
 		  </td></tr>
 
-		  <tr><td>Username</td><td><input type="text" name="username" id="username" />
+		  <tr><td>Name</td><td><input type="text" name="username" id="username" />
 		  <span style="color:red" id='errusername'></span></td></tr>
 
 		<tr><td>Email</td><td><input type="text" name="email" id="email" />
@@ -53,6 +53,7 @@
 
 	  </form>
 
+        Already Registered? <a href = "login.php">Login Here </a>
   </center>
 	</body>
 

@@ -1,7 +1,7 @@
 <?php
-	$database='yogi';
-	$username='yogi';
-	$password='yogi';
+	$database='niyut';
+	$username='shashi';
+	$password='shashi';
 	$server='localhost';
 	$connect = mysql_connect( $server, $username, $password )
 			or die("Could Not Connect DB".mysql_error());

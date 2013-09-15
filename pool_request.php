@@ -1,6 +1,5 @@
 <html>
-  <head> 
-	<script language="JavaScript" src="datepicker.js" type="text/javascript"></script>
+  <head> 	
 	<link href="datepicker.css" rel="stylesheet" />
     <title>
       Request for Car Pool
@@ -91,6 +90,7 @@ Enter the below details to Request for a Car Pool, <br> <br>
   }
   }
 </script>
+<script type="text/javascript" src="htmlDatePicker.js"></script>
 </center>
 </body>
 </html>

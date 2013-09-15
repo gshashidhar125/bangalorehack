@@ -11,7 +11,13 @@
     		    $password =  $_POST['password'];
 		    $password = md5($password);
 
-		    $query = "INSERT INTO `user_master`(`name`, `email`, `contact_num`, `gender`, `password`) VALUES ('".
+		    $query = "SELECT * FROM `user_master` WHERE email='".$email."'";
+		    $result = mysql_query($query, $connect)
+            				or die('Error executing the query' . mysql_error());
+			
+		    echo $result;
+
+		    /*$query = "INSERT INTO `user_master`(`name`, `email`, `contact_num`, `gender`, `password`) VALUES ('".
 			      $username."','".$email."',".$phno.",'".$gender."','".$password."')";
 		  
                     $result = mysql_query($query, $connect)
@@ -20,7 +26,7 @@
 			
 		    sleep(15);
 
-		    redirect('login.php');
+		    redirect('login.php');*/
 		    	
 		?>
 		

@@ -1,4 +1,10 @@
 <html>
+
+<style type="text/css">
+  body { background-size: 100%; }
+</style>
+
+
 	<head>
 		<title>
 			Login page

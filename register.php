@@ -13,7 +13,7 @@
 
   <body>
 
-	  <form name="reg_form" id="reg_form" method="post" id="frm">
+	  <form name="reg_form" id="reg_form" method="post" id="frm" action="confirmation.php">
 
 		  <table>
 
@@ -94,12 +94,12 @@
 			  document.getElementById('errphno').innerHTML = "Phone Number Invalid";
 		   	  flag=1;				
 			}
-
-			
-			
 	
-			if(flag==0)
-				window.location="confirmation.php";
+	
+			if(flag==0){
+			 // window.location="confirmation.php";
+			  frm.submit();
+			}
 		}
 	</script>
 

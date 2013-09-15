@@ -30,7 +30,7 @@
 		<tr><td>Ph.No</td><td><input type="text" name="phno" id="phno" />
   		  <span style="color:red" id='errphno'></span></td></tr>
 
-		<tr><td>Gender</td><td><select id='gender'>
+		<tr><td>Gender</td><td><select id="gender" name="gender">
 			<option value="M">Male</option>
 			<option value="F">Female</option>
 		</select>

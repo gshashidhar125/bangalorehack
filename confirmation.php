@@ -2,6 +2,7 @@
 	<body>
 		<?php
 		    include 'configDB.php';
+		    include 'functions.inc.php';
 		    session_start();
 		    $email =  $_POST['email'];
 		    $username =  $_POST['username'];
@@ -15,7 +16,10 @@
 		  
                     $result = mysql_query($query, $connect)
             				or die('Error executing the query' . mysql_error());
-		    echo "Sign Up Success.. you will be redirected to login page";		
+		    echo "Sign Up Success.. you will be redirected to login page";	
+			
+		    redirect('login.php');
+		    	
 		?>
 		
 	

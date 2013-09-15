@@ -8,7 +8,7 @@
 		    $phno =  $_POST['phno'];
 		    $gender =  $_POST['gender'];
     		    $password =  $_POST['password'];
-		    
+		    echo $email.$username.$phno.$gender.$password;
 		?>
 	
 	</body>

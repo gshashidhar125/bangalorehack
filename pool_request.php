@@ -1,4 +1,7 @@
 <html>
+  <style type="text/css">
+  body { background-size: 100%; }
+  </style>
   <head> 	
 	<link href="datepicker.css" rel="stylesheet" />
     <title>
@@ -6,7 +9,7 @@
     </title>
   </head>
   
-  <body>
+  <body background="car.jpg">
     <?php
        include 'configDB.php';
        include 'functions.inc.php';

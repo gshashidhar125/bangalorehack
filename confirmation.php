@@ -2,7 +2,8 @@
 	<body>
 		<?php
 		    include 'configDB.php';
-		    echo $_POST['email'];
+		    session_start();
+		    echo $_SESSION['email'];
 		?>
 	
 	</body>

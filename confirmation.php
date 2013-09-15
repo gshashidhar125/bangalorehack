@@ -16,22 +16,26 @@
             				or die('Error executing the query' . mysql_error());
 			
 		    $num_rows = mysql_num_rows($result);
-		    echo $num_rows;
-		
+	
 
-		    /*$query = "INSERT INTO `user_master`(`name`, `email`, `contact_num`, `gender`, `password`) VALUES ('".
-			      $username."','".$email."',".$phno.",'".$gender."','".$password."')";
-		  
-                    $result = mysql_query($query, $connect)
-            				or die('Error executing the query' . mysql_error());
-		    echo "Sign Up Success.. you will be redirected to login page";	
+		    if( $num_rows == 0 )
+		    {
+			    $query = "INSERT INTO `user_master`(`name`, `email`, `contact_num`, `gender`, `password`) VALUES ('".
+				      $username."','".$email."',".$phno.",'".$gender."','".$password."')";
+			  
+		            $result = mysql_query($query, $connect)
+		    				or die('Error executing the query' . mysql_error());
+			    echo "Sign Up Success.. you will be redirected to login page";	
 			
-		    sleep(15);
+			    sleep(15);
 
-		    redirect('login.php');*/
+			    redirect('login.php');
+		    }
+		    else
+			echo " User Already Exists : ";			
 		    	
 		?>
-		
+		<a href="login.php">Click Here to Login</a>
 	
 	</body>
 </html>

@@ -1,5 +1,8 @@
 <html>
-	<body>
+	<style type="text/css">
+		  body { background-size: 100%; }
+	</style>
+	<body background="car.jpg">
 		<?php
 		    include 'configDB.php';
 		    include 'functions.inc.php';

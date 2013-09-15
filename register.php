@@ -11,6 +11,10 @@
 		</h1>
   </head>
 
+  <style type="text/css">
+    body { background-size: 100%; }
+  </style>
+
   <body>
 
 	  <form name="reg_form" id="reg_form" method="post" id="frm" action="confirmation.php"

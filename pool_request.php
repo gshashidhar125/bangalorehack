@@ -38,7 +38,7 @@
                                                               </h1>
 
 
-<form name="newpoolrequest" id='newpoolrequest' action='processPoolRequest.php' method="post">
+<form name="newpoolrequest" id='newpoolrequest' action='processPoolRequest.php' method="post" onsubmit = "return check()">
   <!--Name<input type="text" name="name" id="name"/></br>-->
 Enter the below details to Request for a Car Pool, <br> <br>
   Name: <?php echo $username; ?> <br><br>
@@ -180,16 +180,7 @@ Enter the below details to Request for a Car Pool, <br> <br>
 <script language="javascript">
   function check(form)/*function to check userid & password*/
   {
-  /*the following code checkes whether the entered userid and password are matching*/
-  
-  if(form.userid.value == "myuserid" && form.pswrd.value == "mypswrd")
-  {
-  window.open('target.html')/*opens the target page while Id & password matches*/
-  }
-  else
-  {
-  alert("Error Password or Username")/*displays error message*/
-  }
+          return false;
   }
 </script>
 <script type="text/javascript" src="htmlDatePicker.js"></script>

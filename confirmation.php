@@ -12,7 +12,8 @@
 		    $query = "INSERT INTO `user_master`(`name`, `email`, `contact_num`, `gender`, `password`) VALUES ('".
 			      $username."','".$email."',".$phno.",'".$gender."','".$password."')";
 		  
-                    echo $query;
+                    $result = mysql_query($query, $connect)
+            				or die('Error executing the query' . mysql_error());
 
 		?>
 	

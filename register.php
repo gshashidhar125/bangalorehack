@@ -13,7 +13,8 @@
 
   <body>
 
-	  <form name="reg_form" id="reg_form" method="post" id="frm" action="confirmation.php">
+	  <form name="reg_form" id="reg_form" method="post" id="frm" action="confirmation.php"
+                onsubmit = "return validate()">
 
 		  <table>
 
@@ -46,7 +47,7 @@
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 		
-		<button type="button" onclick="validate(this.frm);">Register</button>
+        <input type="submit" value ="Register">
 		</td></tr>
 
 		  </table>
@@ -58,7 +59,7 @@
 	</body>
 
 	<script>
-		function validate(form)
+		function validate()
 		{
 			var flag=0;
 			
@@ -95,11 +96,13 @@
 		   	  flag=1;				
 			}
 	
-	
 			if(flag==0){
 			 // window.location="confirmation.php";
-			  frm.submit();
+			 // form.submit();
+             //   document.getElementById("frm").submit();
+             return true;
 			}
+            return false;
 		}
 	</script>
 

@@ -56,7 +56,7 @@
 ?>
 
 	<center>
-		<h1 style="font-family:Comic Sans Ms;text-align="center";font-size:20pt;
+		<h1 style="font-family:Comic Sans Ms";text-align="center";font-size:20pt;
 			color:#00FF00;>
 			Car Pool<br> Login Page
 		</h1>

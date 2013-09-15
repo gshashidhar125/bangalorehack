@@ -71,7 +71,7 @@ Enter the below details to Request for a Car Pool, <br> <br>
   ?>
   </select>
   </br></br>  
-  Estimated Departure Time : <input type="text" name="SelectedDate" id="SelectedDate" readonly onClick="GetDate(this);" /> <br>
+  Estimated Departure Time : <input type="text" size=5 name="SelectedDate" id="SelectedDate" readonly onClick="GetDate(this);" /> <br>
   <input type="text" name="etime" id="etime"/>
   <input type="submit" value="Submit Request for a Car pool "/>
 </form>

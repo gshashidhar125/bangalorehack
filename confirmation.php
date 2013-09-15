@@ -8,7 +8,12 @@
 		    $phno =  $_POST['phno'];
 		    $gender =  $_POST['gender'];
     		    $password =  $_POST['password'];
-		    echo $email.$username.$phno.$gender.$password;
+
+		    $query = "INSERT INTO `user_master`(`name`, `email`, `contact_num`, `gender`, `password`) VALUES ('".
+			      $username."','".$email."',".$phno.",'".$gender."','".$password."')";
+		  
+                    echo $query;
+
 		?>
 	
 	</body>

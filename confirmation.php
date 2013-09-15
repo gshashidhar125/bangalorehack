@@ -25,7 +25,7 @@
 			  
 		            $result = mysql_query($query, $connect)
 		    				or die('Error executing the query' . mysql_error());
-			    echo "Sign Up Success.. you will be redirected to login page";	
+			    alert "Sign Up Success.. ";	
 			
 			    sleep(15);
 

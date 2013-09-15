@@ -3,8 +3,12 @@
 		<?php
 		    include 'configDB.php';
 		    session_start();
-		    echo $_POST['email'];
-		    echo "lll";
+		    $email =  $_POST['email'];
+		    $username =  $_POST['username'];
+		    $phno =  $_POST['phno'];
+		    $gender =  $_POST['gender'];
+    		    $password =  $_POST['password'];
+		    
 		?>
 	
 	</body>

@@ -25,11 +25,8 @@
 			  
 		            $result = mysql_query($query, $connect)
 		    				or die('Error executing the query' . mysql_error());
-			    alert "Sign Up Success.. ";	
+			    echo "Register Success : ";	
 			
-			    sleep(15);
-
-			    redirect('login.php');
 		    }
 		    else
 			echo " User Already Exists : ";			

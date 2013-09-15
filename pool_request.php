@@ -1,5 +1,7 @@
 <html>
   <head> 
+	<script language="JavaScript" src="datepicker.js" type="text/javascript"></script>
+	<link href="datepicker.css" rel="stylesheet" />
     <title>
       Request for Car Pool
     </title>
@@ -70,7 +72,7 @@ Enter the below details to Request for a Car Pool, <br> <br>
   ?>
   </select>
   </br></br>  
-  Estimated Departure Time : <input type = "text" name = "departureTime"> <br>
+  Estimated Departure Time : <input type="text" name="SelectedDate" id="SelectedDate" readonly onClick="GetDate(this);" /> <br>
   <input type="submit" value="Submit Request for a Car pool "/>
 </form>
 

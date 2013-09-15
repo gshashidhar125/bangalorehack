@@ -34,12 +34,12 @@
                                                               </h1>
 
 
-<form name="startnewpool" id='startnewpool' action='start_pool.php' method="post">
+<form name="newpoolrequest" id='newpoolrequest' action='processPoolRequest.php' method="post">
   <!--Name<input type="text" name="name" id="name"/></br>-->
 Enter the below details to Request for a Car Pool, <br> <br>
   Name: <?php echo $username; ?> <br><br>
   Origin:
-  <select id = "list_of_address">
+  <select id = "srcAddress" name = "srcAddress">
   <?php
     $query = 'select address from list_of_address';
 
@@ -55,7 +55,7 @@ Enter the below details to Request for a Car Pool, <br> <br>
   </select>
   </br></br>  
   Destination:
-  <select id = "list_of_address">
+  <select id = "destAddress" name = "destAddress">
   <?php
     $query = 'select address_id, address from list_of_address';
 
@@ -64,7 +64,7 @@ Enter the below details to Request for a Car Pool, <br> <br>
 
     while($row = mysql_fetch_array($result)) {
 
-        echo '<option value = ' . $row[0] .'>' . $row[1] . '</option>';
+        echo '<option value = ' . $row[1] .'>' . $row[1] . '</option>';
     }
 
   ?>

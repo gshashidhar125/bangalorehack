@@ -34,11 +34,11 @@
                                                               </h1>
 
 
-<form name="startnewpool" id='startnewpool' action='start_pool.php' method="post">
+<form name="startnewpool" id='startnewpool' action='processCreateRequest.php' method="post">
   <!--Name<input type="text" name="name" id="name"/></br>-->
 Enter the below details to start a new Car Pool, <br> <br>Name: <?php echo $username; ?> <br><br>
   Origin:
-  <select id = "list_of_address">
+  <select id = "srcAddress">
   <?php
     $query = 'select address from list_of_address';
 
@@ -54,7 +54,7 @@ Enter the below details to start a new Car Pool, <br> <br>Name: <?php echo $user
   </select>
   </br></br>  
   Destination:
-  <select id = "list_of_address">
+  <select id = "destAddress" name="destAddress">
   <?php
     $query = 'select address_id, address from list_of_address';
 

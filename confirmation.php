@@ -18,6 +18,8 @@
             				or die('Error executing the query' . mysql_error());
 		    echo "Sign Up Success.. you will be redirected to login page";	
 			
+		    sleep(5);
+
 		    redirect('login.php');
 		    	
 		?>

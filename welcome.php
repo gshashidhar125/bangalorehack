@@ -1,11 +1,14 @@
 <html>
-   <head>
+   <style type="text/css">
+  body { background-size: 100%; }
+	</style>
+	<head>
         <title>
             Welcome Page
         </title>
    </head>
 
-<body>
+<body background="car.jpg">
 <?php
     include "configDB.php";
 

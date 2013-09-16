@@ -11,6 +11,7 @@
    $departureTime = $_POST['departureTime'];
    $total_seats = $_POST['TotalAvailableSeats'];
 
+    echo "Src : " . $src;
 
    $query = 'select user_id from user_master where email = "' . $emailID . '"'; 
 
@@ -26,11 +27,11 @@
    $poolCreatorUserid = $row[0];
    
    
-   $query = 'select * from car_owner where user_id = ' . $poolCreateUserid . ' and current_location = "' . $src . '" and 
-            destination = "' . $dest . '" and timestampdiff(minute, "' . $departureTime . '", pool_requestor.departure_time) between
+   $query = 'select * from car_owner where user_id = ' . $poolCreatorUserid . ' and current_location = "' . $src . '" and 
+            destination = "' . $dest . '" and timestampdiff(minute, "' . $departureTime . '", car_owner.departure_time) between
             -30 and 30';
 
-    echo "Validate" . $query . "<br>";
+    //echo "Validate" . $query . "<br>";
    $result = mysql_query($query, $connect)
         or die('Error executing the query' . mysql_error());
    
@@ -42,10 +43,10 @@
         return;
     }
     $query = '
-    INSERT INTO `niyut`.`car_owner` (`user_id`, `current_location`, `destination`, `departure_time`, `total_seats`, `available_seats`, `status`, `create_date`) VALUES (' . $poolCreatorUserid . ', "' .$src . '", "' . $dest . '", "' . $departureTime . '", ' . $total_seats . ', ' . $total_seats . '"OPEN", CURRENT_TIMESTAMP")';
+    INSERT INTO `niyut`.`car_owner` (`user_id`, `current_location`, `destination`, `departure_time`, `total_seats`, `available_seats`, `status`, `create_date`) VALUES (' . $poolCreatorUserid . ', "' .$src . '", "' . $dest . '", "' . $departureTime . '", ' . $total_seats . ', ' . $total_seats . ', "OPEN", CURRENT_TIMESTAMP)';
 
 
-    echo $query;
+    //echo $query;
     echo '<br>';
    $result2 = mysql_query($query, $connect)
         or die('Error executing the query' . mysql_error());
@@ -54,7 +55,7 @@
 
    //echo "I am here";
 
-   $query = 'SELECT * FROM pool_requestor, car_owner
+/*   $query = 'SELECT * FROM pool_requestor, car_owner
 
    WHERE 
 
@@ -80,7 +81,38 @@
     echo "No. of Rows = " . $num_rows . '<br>';
    while ($row = mysql_fetch_array($result))
         echo $row[0] . '<br>' ;
+*/
+   $query = 'select * from user_master where user_id = '. $poolCreatorUserid;
+    $result = mysql_query($query, $connect)
+          or die('Error executing the query' . mysql_error());
+ 
+    $num_rows = mysql_num_rows($result);
+   $row = mysql_fetch_array($result);
+   $name = $row[1];
+   $phone = $row[3];
+    echo 'We have confirmed you of your Car - Pool with ' . $name . 'whose Phone number is
+        '.$phone ;
+   echo '</table>';
 
+    $to = 'gshashidhar125@gmail.com';
+    $subject = 'Welcome to Niyut Car Pooling service';
+    $body = 'Your Car Pooling request has been completed successfully.
+            The Below user has been granted car pool request<br>'.$username.'
+            <br> Please find below the Car Pooler and Travel details.<br><br>
+            Car Owner: ' . $name .' <br> Phone Number: ' . $phone;
+        $headers = "MIME-Version: 1.0" . "\r\n" .
+            "Content-type: text/html; charset=iso-8859-1" . "\r\n" .
+            "From: Yogeesh R<malumani@gmail.com>" . "\r\n";// .
+            "Reply-To: yogeesh.srkvs@gmail.com" . "\r\n";// .
+
+/*        echo 'To : ' . $to . '<br />';
+        echo 'Subject: ' . $subject . '<br />';
+        echo 'Body: ' . $body . '<br />';
+*/
+        $ret = mail($to, $subject, $body, $headers);
+//        echo "Ret: " . $ret . "<br />";
 ?>
 </body>
+
+
 </html>

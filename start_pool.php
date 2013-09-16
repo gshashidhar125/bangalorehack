@@ -4,8 +4,10 @@
       Start a new Pool
     </title>
   </head>
-  
-  <body>
+  <style type="text/css">
+  body { background-size: 100%; }
+</style>
+  <body background="car.jpg">
     <?php
        include 'configDB.php';
        include 'functions.inc.php';
@@ -34,11 +36,11 @@
                                                               </h1>
 
 
-<form name="startnewpool" id='startnewpool' action='processCreateRequest.php' method="post">
+<form name="startnewpool" id='startnewpool' action='processCreateRequest.php' method="post" onsubmit = "return validate()">
   <!--Name<input type="text" name="name" id="name"/></br>-->
 Enter the below details to start a new Car Pool, <br> <br>Name: <?php echo $username; ?> <br><br>
   Origin:
-  <select id = "srcAddress">
+  <select id = "srcAddress" name = "srcAddress">
   <?php
     $query = 'select address from list_of_address';
 
@@ -63,31 +65,27 @@ Enter the below details to start a new Car Pool, <br> <br>Name: <?php echo $user
 
     while($row = mysql_fetch_array($result)) {
 
-        echo '<option value = ' . $row[0] .'>' . $row[1] . '</option>';
+        echo '<option value = ' . $row[1] .'>' . $row[1] . '</option>';
     }
 
   ?>
   </select>
   </br></br>  
-  Departure Time : <input type = "text" name = "departureTime"> <br>
-  Total Seats Available: <input type = "text" name = "TotalAvailableSeats"> <br>
+  Departure Time : <input type = "text" name = "departureTime" id="dtime"> <br>
+  Total Seats Available: <input type = "text" name = "TotalAvailableSeats" id="tseats"> <br>
   <input type="submit" value="Submit Car pool Request"/>
+  <div id="err" style="color:red"> </div>
 </form>
 
 <script language="javascript">
-  function check(form)/*function to check userid & password*/
-  {
-  /*the following code checkes whether the entered userid and password are matching*/
-  
-  if(form.userid.value == "myuserid" && form.pswrd.value == "mypswrd")
-  {
-  window.open('target.html')/*opens the target page while Id & password matches*/
-  }
-  else
-  {
-  alert("Error Password or Username")/*displays error message*/
-  }
-  }
+	function validate(){
+		if(document.getElementById("tseats").value.trim() == "" || document.getElementById("dtime").value.trim() == "" ) {
+			document.getElementById("err").innerHTML = "Enter Time";
+			return false;
+		}
+		return true
+	}
+
 </script>
 </center>
 </body>

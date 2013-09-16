@@ -15,7 +15,7 @@
     body { background-size: 100%; }
   </style>
 
-  <body>
+  <body background="car.jpg">
 
 	  <form name="reg_form" id="reg_form" method="post" id="frm" action="confirmation.php"
                 onsubmit = "return validate()">

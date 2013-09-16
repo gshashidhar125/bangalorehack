@@ -70,117 +70,91 @@ Enter the below details to Request for a Car Pool, <br> <br>
 
         echo '<option value = ' . $row[1] .'>' . $row[1] . '</option>';
     }
+    
+    echo '</select>';
+    echo '</br></br> ';
 
-  ?>
-  </select>
-  </br></br>  
-  Estimated Departure Time : <input type="text" size=5 name="SelectedDate" id="SelectedDate" readonly onClick="GetDate(this);" style="width: 100px;"/> 
+	$today = new DateTime();
+	
+	echo 'Estimated Departure Time';
+	echo '<select id=\'date1\' name=\'date1\'>';
+		echo '<option value="';
+		echo $today->format( 'Y-m-d' );
+		echo '">';
+			echo $today->format( 'Y-m-d' );
+			
+			$datetime = new DateTime(); 
+			
+			$issue_date = $datetime->format('Y-m-d'); // Prints "2011/03/20 07:16:17" 
+			$expiry_date = date('Y-m-d', strtotime($issue_date. ' + 1 day'));
 
-<select name="time" id="time">
-	<option value="5:00 AM">5:00 AM</option>
-	<option value="5:15 AM">5:15 AM</option>
-	<option value="5:30 AM">5:30 AM</option>
-	<option value="5:45 AM">5:45 AM</option>
-	
-	<option value="6:00 AM">6:00 AM</option>
-	<option value="6:15 AM">6:15 AM</option>
-	<option value="6:30 AM">6:30 AM</option>
-	<option value="6:45 AM">6:45 AM</option>
-	
-	<option value="7:00 AM">7:00 AM</option>
-	<option value="7:15 AM">7:15 AM</option>
-	<option value="7:30 AM">7:30 AM</option>
-	<option value="7:45 AM">7:45 AM</option>
-	
-	<option value="8:00 AM">8:00 AM</option>
-	<option value="8:15 AM">8:15 AM</option>
-	<option value="8:30 AM">8:30 AM</option>
-	<option value="8:45 AM">8:45 AM</option>
-	
-	<option value="9:00 AM">9:00 AM</option>
-	<option value="9:15 AM">9:15 AM</option>
-	<option value="9:30 AM">9:30 AM</option>
-	<option value="9:45 AM">9:45 AM</option>
-	
-	<option value="10:00 AM">10:00 AM</option>
-	<option value="10:15 AM">10:15 AM</option>
-	<option value="10:30 AM">10:30 AM</option>
-	<option value="10:45 AM">10:45 AM</option>
-	
-	<option value="11:00 AM">11:00 AM</option>
-	<option value="11:15 AM">11:15 AM</option>
-	<option value="11:30 AM">11:30 AM</option>
-	<option value="11:45 AM">11:45 AM</option>
-	
-	<option value="12:00 PM">12:00 PM</option>
-	<option value="12:15 PM">12:15 PM</option>
-	<option value="12:30 PM">12:30 PM</option>
-	<option value="12:45 PM">12:45 PM</option>
-	
-	<option value="1:00 PM">1:00 PM</option>
-	<option value="1:15 PM">1:15 PM</option>
-	<option value="1:30 PM">1:30 PM</option>
-	<option value="1:45 PM">1:45 PM</option>
-	
-	<option value="2:00 PM">2:00 PM</option>
-	<option value="2:15 PM">2:15 PM</option>
-	<option value="2:30 PM">2:30 PM</option>
-	<option value="2:45 PM">2:45 PM</option>
-	
-	<option value="3:00 PM">3:00 PM</option>
-	<option value="3:15 PM">3:15 PM</option>
-	<option value="3:30 PM">3:30 PM</option>
-	<option value="3:45 PM">3:45 PM</option>
-	
-	<option value="4:00 PM">4:00 PM</option>
-	<option value="4:15 PM">4:15 PM</option>
-	<option value="4:30 PM">4:30 PM</option>
-	<option value="4:45 PM">4:45 PM</option>
-	
-	<option value="5:00 PM">5:00 PM</option>
-	<option value="5:15 PM">5:15 PM</option>
-	<option value="5:30 PM">5:30 PM</option>
-	<option value="5:45 PM">5:45 PM</option>
-	
-	<option value="6:00 PM">6:00 PM</option>
-	<option value="6:15 PM">6:15 PM</option>
-	<option value="6:30 PM">6:30 PM</option>
-	<option value="6:45 PM">6:45 PM</option>
-	
-	<option value="7:00 PM">7:00 PM</option>
-	<option value="7:15 PM">7:15 PM</option>
-	<option value="7:30 PM">7:30 PM</option>
-	<option value="7:45 PM">7:45 PM</option>
-	
-	<option value="8:00 PM">8:00 PM</option>
-	<option value="8:15 PM">8:15 PM</option>
-	<option value="8:30 PM">8:30 PM</option>
-	<option value="8:45 PM">8:45 PM</option>
-	
-	<option value="9:00 PM">9:00 PM</option>
-	<option value="9:15 PM">9:15 PM</option>
-	<option value="9:30 PM">9:30 PM</option>
-	<option value="9:45 PM">9:45 PM</option>
-	
-	<option value="10:00 PM">10:00 PM</option>
-	<option value="10:15 PM">10:15 PM</option>
-	<option value="10:30 PM">10:30 PM</option>
-	<option value="10:45 PM">10:45 PM</option>
-	
-	<option value="11:00 PM">11:00 PM</option>
-	<option value="11:15 PM">11:15 PM</option>
-	<option value="11:30 PM">11:30 PM</option>
-	<option value="11:45 PM">11:45 PM</option>
+		echo '</option>';
+		echo '<option value="';
+		echo $expiry_date;
+		echo'">';
+			echo $expiry_date;
+		echo '</option>';
+	echo '</select>';
+  ?>  
+
+  
+
+<select id="time1" name="time1">
+	<option value="05:00:00">05:00</option>
+	<option value="05:30:00">05:30</option>
+	<option value="06:00:00">06:00</option>
+	<option value="06:30:00">06:30</option>
+	<option value="07:00:00">07:00</option>
+	<option value="07:30:00">07:30</option>
+	<option value="08:00:00">08:00</option>
+	<option value="08:30:00">08:30</option>
+	<option value="09:00:00">09:00</option>
+	<option value="09:30:00">09:30</option>
+	<option value="10:00:00">10:00</option>
+	<option value="10:30:00">10:30</option>
+	<option value="11:00:00">11:00</option>
+	<option value="11:30:00">11:30</option>
+	<option value="12:00:00">12:00</option>
+	<option value="12:30:00">12:30</option>
+	<option value="13:00:00">13:00</option>
+	<option value="13:30:00">13:30</option>
+	<option value="14:00:00">14:00</option>
+	<option value="14:30:00">14:30</option>
+	<option value="15:00:00">15:00</option>
+	<option value="15:30:00">15:30</option>
+	<option value="16:00:00">16:00</option>
+	<option value="16:30:00">16:30</option>
+	<option value="17:00:00">17:00</option>
+	<option value="17:30:00">17:30</option>
+	<option value="18:00:00">18:00</option>
+	<option value="18:30:00">18:30</option>
+	<option value="19:00:00">19:00</option>
+	<option value="19:30:00">19:30</option>
+	<option value="20:00:00">20:00</option>
+	<option value="20:30:00">20:30</option>
+	<option value="21:00:00">21:00</option>
+	<option value="21:30:00">21:30</option>
+	<option value="22:00:00">22:00</option>
+	<option value="22:30:00">22:30</option>
+	<option value="23:00:00">23:00</option>
+	<option value="23:30:00">23:30</option>
 </select>
 <br>
-  <input type="text" name="departureTime" id="departureTime"/>
+<br>
   <input type="submit" value="Submit Request for a Car pool "/>
+<div id='err' style="color:red"></div>
 </form>
 
 <script language="javascript">
   function check()/*function to check userid & password*/
   {
-          return false;
+          
+          if(document.getElementById("SelectedDate").value.trim()==""){
+          	document.getElementById('err').innerHTML="SelectDate";
+          	return false;
+          }
+                              	
+          return true;
   }
 </script>
 <script type="text/javascript" src="htmlDatePicker.js"></script>
